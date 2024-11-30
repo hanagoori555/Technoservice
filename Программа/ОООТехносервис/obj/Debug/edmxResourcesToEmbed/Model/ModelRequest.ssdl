@@ -1,0 +1,264 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище NSRequests" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Defect">
+    <Key>
+      <PropertyRef Name="DefectId" />
+    </Key>
+    <Property Name="DefectId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DefectName" Type="nvarchar" MaxLength="150" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Device">
+    <Key>
+      <PropertyRef Name="DeviceId" />
+    </Key>
+    <Property Name="DeviceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DeviceName" Type="nvarchar" MaxLength="150" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Priory">
+    <Key>
+      <PropertyRef Name="PrioryId" />
+    </Key>
+    <Property Name="PrioryId" Type="int" Nullable="false" />
+    <Property Name="PrioryName" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Request">
+    <Key>
+      <PropertyRef Name="RequestId" />
+    </Key>
+    <Property Name="RequestId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RequestDate" Type="date" Nullable="false" />
+    <Property Name="RequestDeviceId" Type="int" Nullable="false" />
+    <Property Name="RequestDefectId" Type="int" Nullable="false" />
+    <Property Name="RequestClientId" Type="int" Nullable="false" />
+    <Property Name="RequestDescription" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="RequestStatusId" Type="int" Nullable="false" />
+    <Property Name="RequestMasterId" Type="int" Nullable="false" />
+    <Property Name="RequestTime" Type="int" Nullable="false" />
+    <Property Name="RequestPrioryId" Type="int" Nullable="false" />
+    <Property Name="RequestStageId" Type="int" Nullable="false" />
+    <Property Name="RequestComment" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleName" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Stage">
+    <Key>
+      <PropertyRef Name="StageId" />
+    </Key>
+    <Property Name="StageId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StageName" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Status">
+    <Key>
+      <PropertyRef Name="StatusId" />
+    </Key>
+    <Property Name="StatusId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StatusName" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserFullName" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="UserLogin" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserPassword" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserRoleId" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "DBMatisikRequests21.dbo.View_ALL_Request" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="View_ALL_Request">
+    <Key>
+      <PropertyRef Name="RequestId" />
+      <PropertyRef Name="RequestDate" />
+      <PropertyRef Name="DeviceName" />
+      <PropertyRef Name="DefectName" />
+      <PropertyRef Name="Client" />
+      <PropertyRef Name="RequestDescription" />
+      <PropertyRef Name="StatusName" />
+      <PropertyRef Name="Master" />
+      <PropertyRef Name="RequestTime" />
+      <PropertyRef Name="PrioryName" />
+      <PropertyRef Name="StageName" />
+    </Key>
+    <Property Name="RequestId" Type="int" Nullable="false" />
+    <Property Name="RequestDate" Type="date" Nullable="false" />
+    <Property Name="DeviceName" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="DefectName" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="Client" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="RequestDescription" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="StatusName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Master" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="RequestTime" Type="int" Nullable="false" />
+    <Property Name="PrioryName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="StageName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="RequestComment" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <Association Name="FK_Request_Defect">
+    <End Role="Defect" Type="Self.Defect" Multiplicity="1" />
+    <End Role="Request" Type="Self.Request" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Defect">
+        <PropertyRef Name="DefectId" />
+      </Principal>
+      <Dependent Role="Request">
+        <PropertyRef Name="RequestDefectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Request_Device">
+    <End Role="Device" Type="Self.Device" Multiplicity="1" />
+    <End Role="Request" Type="Self.Request" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Device">
+        <PropertyRef Name="DeviceId" />
+      </Principal>
+      <Dependent Role="Request">
+        <PropertyRef Name="RequestDeviceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Request_Priory">
+    <End Role="Priory" Type="Self.Priory" Multiplicity="1" />
+    <End Role="Request" Type="Self.Request" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Priory">
+        <PropertyRef Name="PrioryId" />
+      </Principal>
+      <Dependent Role="Request">
+        <PropertyRef Name="RequestPrioryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Request_Stage">
+    <End Role="Stage" Type="Self.Stage" Multiplicity="1" />
+    <End Role="Request" Type="Self.Request" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Stage">
+        <PropertyRef Name="StageId" />
+      </Principal>
+      <Dependent Role="Request">
+        <PropertyRef Name="RequestStageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Request_Status">
+    <End Role="Status" Type="Self.Status" Multiplicity="1" />
+    <End Role="Request" Type="Self.Request" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status">
+        <PropertyRef Name="StatusId" />
+      </Principal>
+      <Dependent Role="Request">
+        <PropertyRef Name="RequestStatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Request_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Request" Type="Self.Request" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Request">
+        <PropertyRef Name="RequestClientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Request_User1">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Request" Type="Self.Request" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Request">
+        <PropertyRef Name="RequestMasterId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Role">
+    <End Role="Role" Type="Self.Role" Multiplicity="1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="UserRoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="GetRequestMasterId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MasterId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetRequestMasterName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MasterName" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="GetRequestMasterNameLike" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MasterNameLike" Type="nvarchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="Хранилище NSRequestsContainer">
+    <EntitySet Name="Defect" EntityType="Self.Defect" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Device" EntityType="Self.Device" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Priory" EntityType="Self.Priory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Request" EntityType="Self.Request" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Stage" EntityType="Self.Stage" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="View_ALL_Request" EntityType="Self.View_ALL_Request" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [View_ALL_Request].[RequestId] AS [RequestId], 
+    [View_ALL_Request].[RequestDate] AS [RequestDate], 
+    [View_ALL_Request].[DeviceName] AS [DeviceName], 
+    [View_ALL_Request].[DefectName] AS [DefectName], 
+    [View_ALL_Request].[Client] AS [Client], 
+    [View_ALL_Request].[RequestDescription] AS [RequestDescription], 
+    [View_ALL_Request].[StatusName] AS [StatusName], 
+    [View_ALL_Request].[Master] AS [Master], 
+    [View_ALL_Request].[RequestTime] AS [RequestTime], 
+    [View_ALL_Request].[PrioryName] AS [PrioryName], 
+    [View_ALL_Request].[StageName] AS [StageName], 
+    [View_ALL_Request].[RequestComment] AS [RequestComment]
+    FROM [dbo].[View_ALL_Request] AS [View_ALL_Request]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_Request_Defect" Association="Self.FK_Request_Defect">
+      <End Role="Defect" EntitySet="Defect" />
+      <End Role="Request" EntitySet="Request" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Request_Device" Association="Self.FK_Request_Device">
+      <End Role="Device" EntitySet="Device" />
+      <End Role="Request" EntitySet="Request" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Request_Priory" Association="Self.FK_Request_Priory">
+      <End Role="Priory" EntitySet="Priory" />
+      <End Role="Request" EntitySet="Request" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Request_Stage" Association="Self.FK_Request_Stage">
+      <End Role="Stage" EntitySet="Stage" />
+      <End Role="Request" EntitySet="Request" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Request_Status" Association="Self.FK_Request_Status">
+      <End Role="Status" EntitySet="Status" />
+      <End Role="Request" EntitySet="Request" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Request_User" Association="Self.FK_Request_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Request" EntitySet="Request" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Request_User1" Association="Self.FK_Request_User1">
+      <End Role="User" EntitySet="User" />
+      <End Role="Request" EntitySet="Request" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

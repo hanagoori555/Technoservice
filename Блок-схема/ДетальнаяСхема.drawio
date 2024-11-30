@@ -1,0 +1,92 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36" version="24.7.14">
+  <diagram name="Страница — 1" id="s9hUHqfxmor6uLfwyALH">
+    <mxGraphModel dx="1179" dy="861" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="mgIORJ5hluBCUVCXlM-f-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="mgIORJ5hluBCUVCXlM-f-1" target="mgIORJ5hluBCUVCXlM-f-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="mgIORJ5hluBCUVCXlM-f-1" value="Среднее время заявки (Заявки)" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="364" y="10" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="mgIORJ5hluBCUVCXlM-f-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="mgIORJ5hluBCUVCXlM-f-2" target="mgIORJ5hluBCUVCXlM-f-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="mgIORJ5hluBCUVCXlM-f-2" value="Время=0&lt;div&gt;Кол-во обслуж. заявок=0&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="354" y="100" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="mgIORJ5hluBCUVCXlM-f-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="mgIORJ5hluBCUVCXlM-f-3" target="mgIORJ5hluBCUVCXlM-f-14">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="710" y="220" />
+              <mxPoint x="710" y="720" />
+              <mxPoint x="424" y="720" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="mgIORJ5hluBCUVCXlM-f-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="mgIORJ5hluBCUVCXlM-f-3" target="mgIORJ5hluBCUVCXlM-f-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="mgIORJ5hluBCUVCXlM-f-3" value="i=0; Заявки; Количество-1; 1" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="354" y="200" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="mgIORJ5hluBCUVCXlM-f-4" value="Заявка = Заявки[i]" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="354" y="280" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="mgIORJ5hluBCUVCXlM-f-7" value="Да" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="mgIORJ5hluBCUVCXlM-f-5" target="mgIORJ5hluBCUVCXlM-f-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="mgIORJ5hluBCUVCXlM-f-8" value="Нет" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="mgIORJ5hluBCUVCXlM-f-5">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="421" y="640" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="260" y="430" />
+              <mxPoint x="260" y="590" />
+              <mxPoint x="421" y="590" />
+              <mxPoint x="421" y="640" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="mgIORJ5hluBCUVCXlM-f-5" value="Заявка.Статус==&lt;div&gt;&quot;Выполнена&quot;&lt;/div&gt;" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="364" y="380" width="100" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="mgIORJ5hluBCUVCXlM-f-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="mgIORJ5hluBCUVCXlM-f-6" target="mgIORJ5hluBCUVCXlM-f-10">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="420" y="640" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="560" y="590" />
+              <mxPoint x="420" y="590" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="mgIORJ5hluBCUVCXlM-f-6" value="Время+=Заявка.Время&lt;div&gt;Кол-во обслуж. заявок++&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="480" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="mgIORJ5hluBCUVCXlM-f-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="mgIORJ5hluBCUVCXlM-f-10" target="mgIORJ5hluBCUVCXlM-f-3">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="200" y="670" />
+              <mxPoint x="200" y="220" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="mgIORJ5hluBCUVCXlM-f-10" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="390" y="640" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="mgIORJ5hluBCUVCXlM-f-14" value="Среднее время=Время/Кол-во обслуж." style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="364" y="740" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="mgIORJ5hluBCUVCXlM-f-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="mgIORJ5hluBCUVCXlM-f-4" target="mgIORJ5hluBCUVCXlM-f-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="mgIORJ5hluBCUVCXlM-f-20" value="Среднее время" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="374" y="840" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="mgIORJ5hluBCUVCXlM-f-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="mgIORJ5hluBCUVCXlM-f-14" target="mgIORJ5hluBCUVCXlM-f-20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
